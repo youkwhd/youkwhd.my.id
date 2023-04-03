@@ -1,0 +1,13 @@
+/* TODO: use weight */
+
+@font-face {
+    font-family: "Druk Wide Bold";
+    src: url("/assets/fonts/DrukWide/DrukWide-Bold-Trial.otf") format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Druk Wide Bold Italic";
+    src: url("/assets/fonts/DrukWide/DrukWide-BoldItalic-Trial.otf") format("opentype");
+    font-display: swap;
+}
