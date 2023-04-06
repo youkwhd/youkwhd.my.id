@@ -39,13 +39,12 @@ export default ({ text, divider, __iteration }: { text: string, divider: string,
             __iteration = 15
 
         __iterate(1, __iteration, () => setItems((items) => [...items, [text, divider]]))
-        console.log(items)
     }, [])
 
     return (
         <Marquee
             gradient={false}
-            className="text-3xl h-20 border-y border-white my-80"
+            className="text-3xl h-20 border-y border-white my-20 py-5"
         >
             {items.map((items) => <Item content={items[0]} divider={items[1]} />)}
         </Marquee>

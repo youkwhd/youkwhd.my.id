@@ -7,12 +7,22 @@
 @tailwind utilities;
 
 html {
-    /* font-family: "Druk Wide Bold"; */
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     color: white;
     background-color: rgb(35, 34, 34);
-    /* background-color: #e3e3d9; */
-    /* color: #be3f35;
-    color: #212529; */
+}
+
+.__list li:hover hr {
+    visibility: visible;
+}
+
+.__list li div div p {
+    transition-duration: 0.2s;
+    transform: translateY(0%);
+}
+
+.__list li div:hover div p {
+    transition-duration: 0.2s;
+    transform: translateY(-100%);
 }
