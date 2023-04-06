@@ -4,8 +4,9 @@ export default () => {
     return (
         <>
             <header className="flex items-center justify-between">
-                <h1>youkwhd</h1>
-                <Navbar />
+                <span>youkwhd</span>
+                <span>{new Date().toDateString()}</span>
+                <span>world</span>
             </header>
         </>
     )
