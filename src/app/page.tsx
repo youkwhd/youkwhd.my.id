@@ -3,6 +3,8 @@
 import Header from "@/components/Header"
 import List from "@/components/List"
 
+import Animated from "@/components/Animated"
+
 import { motion } from "framer-motion"
 import Marquee from "@/components/Marquee"
 
@@ -16,7 +18,6 @@ export default () => {
 
             <div className="my-7 mx-4 py-5">
                 <p>intrested with my works? contact me:</p>
-                <p className="underline">lolywk@tutanota.com</p>
             </div>
 
             <Marquee text="AVAILABLE FOR HIRE" divider="+" />
