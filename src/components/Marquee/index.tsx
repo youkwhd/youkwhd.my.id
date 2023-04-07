@@ -44,7 +44,7 @@ export default ({ text, divider, __iteration }: { text: string, divider: string,
     return (
         <Marquee
             gradient={false}
-            className="text-3xl h-20 border-y border-white my-20 py-5"
+            className="text-3xl h-20 border-y border-white mb-10"
         >
             {items.map((items) => <Item content={items[0]} divider={items[1]} />)}
         </Marquee>

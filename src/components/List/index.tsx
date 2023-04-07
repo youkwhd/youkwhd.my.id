@@ -1,12 +1,36 @@
+import Link from "next/link"
 import Animated from "@/components/Animated"
 
 import { motion, Variants, Transition } from "framer-motion"
 import { useEffect, useState } from "react"
 
-export default ({ contents }: { contents: Array<string> }) => {
-    /* TODO: concat `contents` and `hoversIentifier` as one
-     */
-    const [hoversIdentifier, setHoversIdentifier] = useState<Array<Boolean>>(Array(contents.length).fill(false))
+type Content = {
+    title: string
+    url: string
+    subtitle: {
+        year: number
+        projectType: string
+    }
+}
+
+type ContentParsed = Content & {
+    isHovered: boolean
+} 
+
+const __Content_parse = (content: Content): ContentParsed => {
+    const contentParsed: ContentParsed = {...content, isHovered: false}
+    contentParsed.title = contentParsed.title.toUpperCase()
+    return contentParsed
+}
+
+export default ({ contents, className }: { contents: Array<Content>, className?: string }) => {
+    const [parsedContents, setParsedContents] = useState<Array<ContentParsed>>([])
+
+    useEffect(() => {
+        contents.forEach((content) => {
+            setParsedContents((parsedContents) => [...parsedContents, __Content_parse(content)])
+        })
+    }, [])
 
     const titleTransition: Transition = {
         type: "tween",
@@ -22,40 +46,45 @@ export default ({ contents }: { contents: Array<string> }) => {
     }
 
     return (
-        <ul className="__list text-6xl">
-            {contents.map((content, __index) => (
+        <ul className={`__list text-6xl ${className ? className : ""}`}>
+            {parsedContents.map((content, __index) => (
                 <motion.li
                     key={__index}
                     className="cursor-pointer"
                     whileHover="hover"
-                    onHoverStart={() => setHoversIdentifier((hovers) => { hovers[__index] = !hovers[__index]; return [...hovers] })}
-                    onHoverEnd={() => setHoversIdentifier((hovers) => { hovers[__index] = !hovers[__index]; return [...hovers] })}
+                    onHoverStart={() => setParsedContents((contents) => { contents[__index].isHovered = true; return [...contents] })}
+                    onHoverEnd={() => setParsedContents((contents) => { contents[__index].isHovered = false; return [...contents] })}
                 >
-                    <hr className="invisible" />
-                    <div className="relative overflow-hidden flex justify-between">
-                        <motion.div>
-                            <motion.p
-                                variants={titleVariant}
-                                transition={titleTransition}
-                            >
-                                {content}
-                            </motion.p>
-                            <motion.p
-                                variants={titleVariant}
-                                transition={titleTransition}
-                                className="absolute"
-                                style={{ fontFamily: "serif"}}
-                            >
-                                {content}
-                            </motion.p>
-                        </motion.div>
-                        <div className="pt-2 text-sm">
-                            {hoversIdentifier[__index] && 
-                                <Animated.Text text="2023 / Developement" />
-                            }
+                    <Link
+                        target="_blank"
+                        href={content.url}
+                    >
+                        <hr className="invisible" />
+                        <div className="relative overflow-hidden flex justify-between">
+                            <motion.div>
+                                <motion.p
+                                    variants={titleVariant}
+                                    transition={titleTransition}
+                                >
+                                    {content.title.toUpperCase()}
+                                </motion.p>
+                                <motion.p
+                                    variants={titleVariant}
+                                    transition={titleTransition}
+                                    className="absolute"
+                                    style={{ fontFamily: "serif"}}
+                                >
+                                    {content.title.toUpperCase()}
+                                </motion.p>
+                            </motion.div>
+                            <div className="pt-2 text-sm">
+                                {content.isHovered && 
+                                    <Animated.Text text={`${content.subtitle.year} / ${content.subtitle.projectType}`} />
+                                }
+                            </div>
                         </div>
-                    </div>
-                    <hr className="invisible"/>
+                        <hr className="invisible"/>
+                    </Link>
                 </motion.li>
             ))}
         </ul>

@@ -5,11 +5,25 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+    min-height: 100vh;
+}
+
 html {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     color: white;
     background-color: rgb(35, 34, 34);
+}
+
+body {
+    /* background-image: url("/assets/images/city-7847987.jpg"); */
+    /* background-image: url("/assets/images/bird-7880567.jpg"); */
+    background-image: url("/assets/images/hummingbird-7745078.jpg");
+    /* background-image: url("/assets/images/swallowtail-7373087.jpg"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
 }
 
 .__list li:hover hr {

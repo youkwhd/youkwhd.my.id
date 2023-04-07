@@ -1,26 +1,76 @@
 "use client"
 
 import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 import List from "@/components/List"
-
-import Animated from "@/components/Animated"
-
-import { motion } from "framer-motion"
 import Marquee from "@/components/Marquee"
 
 export default () => {
+    const listContent = [
+        { 
+            title: "duragest",
+            url: "https://github.com/youkwhd/duragest",
+            subtitle: {
+                year: 2023,
+                projectType: "Terminal Game"
+            }
+        },
+        {
+            title: "infinite scroll",
+            url: "https://github.com/youkwhd/fe.infinite-scroll",
+            subtitle: {
+                year: 2023,
+                projectType: "Web Development"
+            }
+        },
+        {
+            title: "twrap",
+            url: "https://github.com/youkwhd/twrap",
+            subtitle: {
+                year: 2022,
+                projectType: "Text Wrapper"
+            }
+        },
+        {
+            title: "libtmdb",
+            url: "https://github.com/youkwhd/libtmdb",
+            subtitle: {
+                year: 2022,
+                projectType: "C Library"
+            }
+        },
+        {
+            title: "TUNE CWE 315",
+            url: "https://github.com/youkwhd/TUNE-CWE-315",
+            subtitle: {
+                year: 2023,
+                projectType: "Web Security"
+            }
+        },
+        {
+            title: "termstory",
+            url: "https://github.com/youkwhd/termstory",
+            subtitle: {
+                year: 2023,
+                projectType: "Game generator"
+            }
+        },
+        {
+            title: "youkwhd",
+            url: "https://youkwhd.com",
+            subtitle: {
+                year: 2022,
+                projectType: "Web Development"
+            }
+        }
+    ]
+
     return (
         <>
-            <div className="my-3 mx-4 py-5">
-                <h1 className="text-xl">Projects</h1>
-            </div>
-            <List contents={["DURAGEST", "TWRAP", "FE LIST", "LIBTMDB", "TUNE CWE 315", "TERMSTORY", "YOUKWHD"]} />
-
-            <div className="my-7 mx-4 py-5">
-                <p>intrested with my works? contact me:</p>
-            </div>
-
-            <Marquee text="AVAILABLE FOR HIRE" divider="+" />
+            <h1 className="text-xl">Featured Projects 2022 - 2023</h1>
+            <List contents={listContent} className="my-6 py-4" />
+            <Marquee text="AVAILABLE FOR HIRING" divider="+" />
+            <Footer />
         </>
     )
 }
