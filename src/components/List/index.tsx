@@ -49,7 +49,7 @@ export default ({ contents, className }: { contents: Array<Content>, className?:
         <ul className={`__list text-6xl ${className ? className : ""}`}>
             {parsedContents.map((content, __index) => (
                 <motion.li
-                    key={__index}
+                    key={content.title + content.subtitle.year + __index}
                     className="cursor-pointer"
                     whileHover="hover"
                     onHoverStart={() => setParsedContents((contents) => { contents[__index].isHovered = true; return [...contents] })}

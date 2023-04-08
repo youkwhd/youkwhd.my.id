@@ -37,9 +37,9 @@ export default ({ text }: { text: string }) => {
         >
             {text.split(" ").map((word, __index) => (
                 <motion.span
+                    key={__index + word}
                     variants={children}
                     className="mr-1 inline-block"
-                    key={__index}
                 >
                     {word}
                 </motion.span>
