@@ -77,7 +77,7 @@ export default ({ contents, className }: { contents: Array<Content>, className?:
                                     {content.title.toUpperCase()}
                                 </motion.p>
                             </motion.div>
-                            <div className="pt-2 text-sm">
+                            <div className="__subtitle pt-2 text-sm">
                                 {content.isHovered && 
                                     <Animated.Text text={`${content.subtitle.year} / ${content.subtitle.projectType}`} />
                                 }
