@@ -17,7 +17,7 @@ type ContentParsed = Content & {
     isHovered: boolean
 } 
 
-const __Content_parse = (content: Content): ContentParsed => {
+const contentParse = (content: Content): ContentParsed => {
     const contentParsed: ContentParsed = {...content, isHovered: false}
     contentParsed.title = contentParsed.title.toUpperCase()
     return contentParsed
@@ -28,7 +28,7 @@ export default ({ contents, className }: { contents: Array<Content>, className?:
 
     useEffect(() => {
         contents.forEach((content) => {
-            setParsedContents((parsedContents) => [...parsedContents, __Content_parse(content)])
+            setParsedContents((parsedContents) => [...parsedContents, contentParse(content)])
         })
     }, [])
 
