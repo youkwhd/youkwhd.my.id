@@ -16,10 +16,10 @@ export default () => {
         },
         {
             title: "infinite scroll",
-            url: "https://github.com/youkwhd/fe.infinite-scroll",
+            url: "https://github.com/youkwhd/infinite-scroll.ts",
             subtitle: {
                 year: 2023,
-                projectType: "Web Development"
+                projectType: "TypeScript Library"
             }
         },
         {
