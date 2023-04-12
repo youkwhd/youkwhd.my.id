@@ -16,7 +16,7 @@ export default () => {
         },
         {
             title: "infinite scroll",
-            url: "https://github.com/youkwhd/infinite-scroll.ts",
+            url: "https://www.npmjs.com/package/infinite-scroll.ts",
             subtitle: {
                 year: 2023,
                 projectType: "TypeScript Library"
