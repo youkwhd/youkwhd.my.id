@@ -32,7 +32,7 @@ export default () => {
         },
         {
             title: "libtmdb",
-            url: "https://github.com/youkwhd/libtmdb",
+            url: "https://www.themoviedb.org/documentation/api/wrappers-libraries",
             subtitle: {
                 year: 2022,
                 projectType: "C Library"
