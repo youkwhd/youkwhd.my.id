@@ -26,19 +26,15 @@ const Item = ({ content, divider }: { content: string, divider: string }) => {
     )
 }
 
-const __iterate = (from: number, to: number, callback: Function) => {
-    for (; from <= to; from++)
-        callback()
-}
-
 export default ({ text, divider, __iteration }: { text: string, divider: string, __iteration?: number }) => {
-    const [items, setItems] = useState<Array<Array<string>>>([[text, divider]])
+    const [items, setItems] = useState<Array<Array<string>>>([[]])
 
     useEffect(() => {
         if (!__iteration)
             __iteration = 15
 
-        __iterate(1, __iteration, () => setItems((items) => [...items, [text, divider]]))
+        for (let i = 0; i < __iteration; i++)
+            setItems((items) => [...items, [text, divider]])
     }, [])
 
     return (
