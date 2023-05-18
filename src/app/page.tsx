@@ -51,7 +51,7 @@ export default () => {
             url: "https://github.com/youkwhd/termstory",
             subtitle: {
                 year: 2023,
-                projectType: "Game generator"
+                projectType: "Game Generator"
             }
         },
         {
