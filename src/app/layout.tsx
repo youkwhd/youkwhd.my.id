@@ -1,6 +1,7 @@
 import "@/css/__global.css"
+import { Metadata } from "next"
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "youkwhd",
     description: "portfolio",
 }
@@ -8,7 +9,7 @@ export const metadata = {
 export default ({ children }: { children: React.ReactNode }) => {
     return (
         <html lang="en">
-            <body className="">{children}</body>
+            <body>{children}</body>
         </html>
     )
 }
