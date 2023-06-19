@@ -17,22 +17,22 @@ const ItemContent = ({ text }: { text: string }) => {
     )
 }
 
-const Item = ({ content, divider }: { content: string, divider: string }) => {
+const Item = (item: ItemT) => {
     return (
         <>
-            <ItemContent text={content} />
-            <ItemDivider text={divider} />
+            <ItemContent text={item.text} />
+            <ItemDivider text={item.divider} />
         </>
     )
 }
 
-type Item = {
+type ItemT = {
     text: string,
     divider: string,
 }
 
 export default ({ text, divider, __iteration }: { text: string, divider: string, __iteration?: number }) => {
-    const [items, setItems] = useState<Array<Item>>([])
+    const [items, setItems] = useState<Array<ItemT>>([])
 
     useEffect(() => {
         if (!__iteration)
@@ -47,7 +47,7 @@ export default ({ text, divider, __iteration }: { text: string, divider: string,
             gradient={false}
             className="text-3xl h-20 border-y border-white mb-10"
         >
-            {items.map((items, __index) => <Item key={__index} content={items.text} divider={items.divider} />)}
+            {items.map((items, __index) => <Item key={__index} text={items.text} divider={items.divider} />)}
         </Marquee>
     )
 }
