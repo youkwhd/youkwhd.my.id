@@ -32,7 +32,7 @@ type Item = {
 }
 
 export default ({ text, divider, __iteration }: { text: string, divider: string, __iteration?: number }) => {
-    const [items, setItems] = useState<Array<Item>>([{text: "", divider: ""}])
+    const [items, setItems] = useState<Array<Item>>([])
 
     useEffect(() => {
         if (!__iteration)
