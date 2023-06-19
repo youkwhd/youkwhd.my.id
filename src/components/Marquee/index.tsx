@@ -26,15 +26,20 @@ const Item = ({ content, divider }: { content: string, divider: string }) => {
     )
 }
 
+type Item = {
+    text: string,
+    divider: string,
+}
+
 export default ({ text, divider, __iteration }: { text: string, divider: string, __iteration?: number }) => {
-    const [items, setItems] = useState<Array<Array<string>>>([[]])
+    const [items, setItems] = useState<Array<Item>>([{text: "", divider: ""}])
 
     useEffect(() => {
         if (!__iteration)
             __iteration = 15
 
         for (let i = 0; i < __iteration; i++)
-            setItems((items) => [...items, [text, divider]])
+            setItems((items) => [...items, {text, divider}])
     }, [])
 
     return (
@@ -42,7 +47,7 @@ export default ({ text, divider, __iteration }: { text: string, divider: string,
             gradient={false}
             className="text-3xl h-20 border-y border-white mb-10"
         >
-            {items.map((items, __index) => <Item key={__index} content={items[0]} divider={items[1]} />)}
+            {items.map((items, __index) => <Item key={__index} content={items.text} divider={items.divider} />)}
         </Marquee>
     )
 }
