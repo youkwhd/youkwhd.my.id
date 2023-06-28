@@ -6,19 +6,12 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-    min-height: 100%;
-    height: 100%;
-}
-
-html {
+body {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     color: white;
     background-color: #3b76ac;
-}
 
-body {
     background-image: url("/assets/images/hummingbird-7745078.jpg");
     background-position: center;
     background-repeat: no-repeat;
